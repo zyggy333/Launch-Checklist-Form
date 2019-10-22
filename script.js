@@ -34,15 +34,21 @@
          
 		 //Wrong data type and blank input validation
 		 if (pilotNameInput.value === "" || copilotNameInput.value === "" || fuelLevelInput.value === "" ||  cargoWeightInput.value === "" ) {
-            alert("All fields are required!");
+			alert("All fields are required!");
+			document.getElementById("launchStatus").innerHTML="Shuttle not ready for launch";
+			launchStatus.style.color="red";
 			event.preventDefault();
 			
          }else if(isNaN(pilotNameInput.value)===false || isNaN(copilotNameInput.value)===false){
 			 alert("Make sure to enter valid information for each field!");
+			 document.getElementById("launchStatus").innerHTML="Shuttle not ready for launch";
+			launchStatus.style.color="red";
 			 event.preventDefault();
 
 		 }else if(isNaN(fuelLevelInput.value)===true || isNaN(cargoWeightInput.value)===true){
 			 alert("Make sure to enter valid information for each field!");
+			 document.getElementById("launchStatus").innerHTML="Shuttle not ready for launch";
+			launchStatus.style.color="red";
 			 event.preventDefault();
 			 
 		 }
@@ -64,6 +70,8 @@
 		 }else if(cargoWeightInput.value<10000 && fuelLevelInput.value>10000){
 			launchStatus.style.color="green";
 			document.getElementById("launchStatus").innerHTML="Shuttle is ready for launch";
+			document.getElementById("fuelStatus").innerHTML="Fuel level high enough for launch";
+			document.getElementById("cargoStatus").innerHTML="Cargo weight low enough for launch";
 			event.preventDefault();
 		 }
       });
